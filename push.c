@@ -6,8 +6,12 @@
  * Rerurn: no thing
  */
 
-void push_int(int n)
+void push_int(stack_t *stack, char *n)
 {
-	printf("push %d\n", n);
+	printf("push %s\n", n);
+	if(!stack)
+	{
+		printf("0000");
+	}
 
 }

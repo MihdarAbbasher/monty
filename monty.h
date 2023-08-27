@@ -1,6 +1,14 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -10,14 +18,6 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
 
 typedef struct stack_s
 {
@@ -34,6 +34,7 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct instruction_s
 {
         char *opcode;
@@ -41,9 +42,8 @@ typedef struct instruction_s
 } instruction_t;
 
 void print_err(char *s);
-void push(int n);
-char *read_textfile(char *filename, size_t letters);
-void handle_line(char *line, unsigned int i);
-char **split_str(char *line, char *del);
+void push_int(stack_t *s, char *n);
+void handle_line(char *line, unsigned int i, stack_t *stack);
+void print_all(stack_t *stack);
 
 #endif

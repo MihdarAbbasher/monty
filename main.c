@@ -13,6 +13,7 @@ int main(int ac, char **av)
 	FILE *file;
 	int size;
 	unsigned int i;
+	stack_t *stack;
 
 	if (ac != 2)
 	{
@@ -30,17 +31,18 @@ int main(int ac, char **av)
 	size = 1024;
 	line = NULL;
 	i = 0;
-	while(size > 1)
+	stack = NULL;
+	while(1)
 	{
 		line = malloc(size * sizeof(char));
 		fgets(line, size, file);
 		if (strlen(line) == 0)
 		{
-			printf("!line");
+			printf("\n\n!line\n");
 			break;
 		}
 		i++;
-		handle_line(line, i);
+		handle_line(line, i, stack);
 		free(line);
 	}
 
