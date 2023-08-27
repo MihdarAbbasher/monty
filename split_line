@@ -1,0 +1,30 @@
+#include "monty.h"
+
+/**
+ * split_str - split str
+ * @s: str
+ * @del: delimitor
+ * Return: arr
+ */
+
+char **split_str(char *s, char *del)
+{
+	char *arr[3];
+	int i;
+       
+	if (!s)
+		return (NULL);
+	arr[0] = strtok(s, del);
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		i++;
+		if (i == 2)
+		{
+			arr[i] = NULL;
+			break;
+		}
+		arr[i] = strtok(NULL, del);
+	}
+	return (arr);
+}

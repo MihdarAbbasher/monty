@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-
+#include <string.h>
 
 typedef struct stack_s
 {
@@ -43,6 +43,7 @@ typedef struct instruction_s
 void print_err(char *s);
 void push(int n);
 char *read_textfile(char *filename, size_t letters);
-
+void handle_line(char *line, unsigned int i);
+char **split_str(char *line, char *del);
 
 #endif
